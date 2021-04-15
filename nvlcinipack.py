@@ -33,8 +33,8 @@ magic = "NVLCINI+".encode('ascii')
 if args.output.endswith(".xz"):
     import lzma
 
-    fo = lzma.open(args.output, mode='wb')
-    print("output is LZMA archive")
+    fo = lzma.open(args.output, mode='wb', format=lzma.FORMAT_XZ, check=lzma.CHECK_CRC32)
+    print("output is XZ archive")
 else:
     fo = open(args.output, mode='wb')
     print("output is plain data file")
